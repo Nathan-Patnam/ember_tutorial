@@ -24,7 +24,7 @@
     <button type="button" class="rr-action-button" onclick={{action "saveBand"}}>
       Add
     </button>
-    <button class="rr-cancel-icon" onclick={{action "cancelAddBand"}}>
+    <button class="rr-cancel-icon"   disabled={{isAddButtonDisabled}} onclick={{action "cancelAddBand" }}>
       {{fa-icon "times"}}
     </button>
     {{else}}
