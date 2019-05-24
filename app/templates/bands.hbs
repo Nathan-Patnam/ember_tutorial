@@ -12,6 +12,13 @@
       </li>
     {{/each}}
   </ul>
+
+   <div class="rr-new-label">
+        <label onclick={{action "addBand"}}>
+          {{fa-icon "plus"}}
+          <span class="ml1">Add new band</span>
+        </label>
+</div>
 </div>
 <div class="rr-main-panel">
   {{outlet}}
