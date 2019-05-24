@@ -1,9 +1,17 @@
 import Route from '@ember/routing/route';
-import EmberObject from '@ember/object';
 import { A } from '@ember/array';
+import EmberObject, { computed } from '@ember/object';
+import { dasherize } from '@ember/string';
 
 let Band = EmberObject.extend({
     name: '',
+    slug: computed('name', function () {
+        return dasherize(this.name)
+    }),
+    site: computed('slug', 'language', function () {
+        console.log('Recomputing site');
+        return `https://bands.com/${this.slug}.${this.language}`;
+    })
 });
 
 let Song = EmberObject.extend({
@@ -46,6 +54,6 @@ export default Route.extend({
             name: 'Foo Fighters', songs:
                 A([pretender])
         });
-        return A([ledZeppelin, pearlJam, fooFighters]);
+        return A([ledZeppelin, pearlJam, fooFighters]); s
     }
 })
