@@ -2,23 +2,9 @@ import Route from '@ember/routing/route';
 import { A } from '@ember/array';
 import EmberObject, { computed } from '@ember/object';
 import { dasherize } from '@ember/string';
+import Band from 'rarwe/models/band';
+import Song from 'rarwe/models/song';
 
-let Band = EmberObject.extend({
-    name: '',
-    slug: computed('name', function () {
-        return dasherize(this.name)
-    }),
-    site: computed('slug', 'language', function () {
-        console.log('Recomputing site');
-        return `https://bands.com/${this.slug}.${this.language}`;
-    })
-});
-
-let Song = EmberObject.extend({
-    title: '',
-    rating: 0,
-    band: ''
-});
 export default Route.extend({
     model() {
         let blackDog = Song.create({
