@@ -1,4 +1,6 @@
 import Controller from '@ember/controller';
+import Band from "rarwe/models/band"
+
 
 export default Controller.extend({
     isAddingBand: false,
@@ -12,7 +14,9 @@ export default Controller.extend({
             this.set('isAddingBand', false);
         },
         saveBand() {
-            // Create a new band
+            let newBand = Band.create({ name: this.newBandName });
+            this.model.pushObject(newBand);
+            this.set('newBandName', '');
         }
 
 
