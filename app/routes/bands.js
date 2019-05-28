@@ -1,7 +1,5 @@
 import Route from '@ember/routing/route';
 import { A } from '@ember/array';
-import EmberObject, { computed } from '@ember/object';
-import { dasherize } from '@ember/string';
 import Band from 'rarwe/models/band';
 import Song from 'rarwe/models/song';
 
@@ -40,6 +38,6 @@ export default Route.extend({
             name: 'Foo Fighters', songs:
                 A([pretender])
         });
-        return A([ledZeppelin, pearlJam, fooFighters]); s
+        return A([ledZeppelin, pearlJam, fooFighters]); 
     }
 })
